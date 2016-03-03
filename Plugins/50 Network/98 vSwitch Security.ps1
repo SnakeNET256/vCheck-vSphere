@@ -23,6 +23,9 @@ if (((Get-PowerCLIVersion) -match "VMware vSphere PowerCLI (.*) build ([0-9]+)")
       if (!(Get-PSSnapin -name VMware.VimAutomation.Vds -ErrorAction SilentlyContinue)) {
          Add-PSSnapin VMware.VimAutomation.Vds
       }
+      if ((Get-Module -ListAvailable -name VMware.VimAutomation.Vds -ErrorAction SilentlyContinue)) {
+         import-module VMware.VimAutomation.Vds
+      }
    }
 }
 
